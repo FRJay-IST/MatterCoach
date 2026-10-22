@@ -1,0 +1,262 @@
+Problem Sheet 1 |Quantum Physics Prior
+                                       Filipe Joaquim
+
+
+  Purpose
+
+  This sheet connects the historical foundations of quantum physics with real engineering technologies.
+  The problems use representative values from spacecraft thermal control, industrial pyrometry, thermal
+  imaging,  photodetection,  optical  communications,  electron  microscopy,  nanofabrication  and
+  photovoltaic engineering. The aim is not only to apply formulae, but also to understand why the
+  underlying physics matters in engineering design.
+
+
+
+Physical constants
+
+                              Quantity                       Value
+
+                         Speed of light                𝑐 = 2.998 × 10⁸ ms⁻¹
+
+                           Planck constant            ℎ = 6.626 × 10⁻³⁴ J s
+
+                       Boltzmann constant          𝑘! = 1.381 × 10⁻²³ J K⁻¹
+
+                     Stefan–Boltzmann constant     𝜎 = 5.670 × 10⁻⁸ W m⁻² K⁻⁴
+
+                              Electron mass            𝑚ₑ = 9.109 × 10⁻³¹ kg
+
+                         Elementary charge             𝑒 = 1.602 × 10⁻¹⁹ C
+
+                         Energy conversion           1 eV = 1.602 × 10⁻¹⁹ J
+
+                       Wien constant             𝑏 = 2.898 × 10⁻³ m K
+
+
+
+
+PROBLEM 1 — Thermal control of a spacecraft
+STEFAN–BOLTZMANN LAW
+
+Spacecraft electronics generate heat that must be removed to prevent components from exceeding their operating
+temperatures. On Earth, convection can transfer heat to the surrounding air; in space, this mechanism is essentially absent.
+Radiator panels therefore reject internally generated heat mainly through thermal radiation.
+
+Consider a satellite whose electronics continuously dissipate 500 W. A radiator panel has an
+effective emissivity ε = 0.85 and operates at T = 300 K. For this simplified model, neglect radiation
+received from the Sun and Earth.
+
+(a) Calculate the power radiated per unit area of the panel.
+(b) Determine the radiator area required to dissipate 500 W.
+(c) Engineers redesign the system so that the radiator can operate at 330 K. Determine the new
+required area and the percentage change in radiator area.
+(d) Explain why increasing the operating temperature can reduce the mass of a spacecraft thermal-
+control system, and why engineers cannot simply increase the temperature indefinitely.
+
+PROBLEM 2 — Measuring the temperature of molten steel
+WIEN'S DISPLACEMENT LAW
+
+In steel manufacturing, temperatures can exceed 1500 °C, making conventional contact thermometers difficult to use.
+Optical pyrometers determine temperature remotely from thermal radiation. The familiar change of heated metal from dull
+red to orange and yellow is itself a consequence of the temperature dependence of the thermal spectrum.
+
+During a manufacturing process, the maximum of the measured emission spectrum occurs at λmax
+= 1.55 μm.
+
+(a) Estimate the temperature of the steel in kelvin.
+(b) At what wavelength would the emission maximum occur if the steel cooled to 1000 K?
+(c) The human eye is sensitive approximately between 400 and 700 nm. Explain why very hot
+objects become visibly incandescent even when the maximum of their thermal spectrum is still in
+the infrared.
+
+PROBLEM 3 — Finding heat losses with a thermal camera
+THERMAL RADIATION
+
+Thermal imaging is widely used in civil and mechanical engineering to identify insulation defects, thermal bridges and
+overheated electrical components. Objects near room temperature emit most of their thermal radiation in the infrared,
+which is why thermal cameras operate at wavelengths much longer than those detected by the human eye.
+
+During an inspection, a well-insulated region of an external wall is at 15 °C while a thermal bridge is
+at 25 °C. Assume both surfaces have emissivity ε = 0.90.
+
+  (a) Calculate the radiant power emitted per unit area by each surface.
+  (b) Determine the percentage increase in emitted power from the warmer region.
+  (c) Calculate the peak emission wavelength of each region using Wien's law.
+  (d) Many building-inspection cameras operate approximately in the 8–14 μm range. Explain why
+  this is appropriate.
+  (e) Why would an ordinary visible-light camera be unable to make the same temperature
+ measurement?
+
+PROBLEM 4 — UV flame detection in industrial safety
+
+PHOTOELECTRIC EFFECT
+
+Industrial burners, furnaces and gas turbines require reliable systems to verify that a flame is present. One technology used
+for this purpose is the UV flame sensor, in which ultraviolet photons emitted by a flame strike a photosensitive cathode and
+eject electrons through the photoelectric effect. Commercial UV flame sensors can be designed to respond to radiation
+approximately in the 185–260 nm range while remaining insensitive to visible light, allowing flames to be detected even in
+the presence of intense visible radiation from hot surfaces.
+
+
+Consider a simplified UV flame detector whose photocathode requires a minimum photon energy
+of φ = 4.8 eV to eject an electron. Ultraviolet radiation from a flame, with wavelength λ = 250 nm,
+reaches the photocathode.
+
+(a) Calculate the energy of the incident 250 nm photons in eV.
+(b) Determine whether photoelectrons are emitted and, if so, calculate their maximum kinetic
+energy.
+(c) Calculate the maximum speed of the emitted electrons.
+(d) Determine the longest wavelength of radiation capable of producing photoemission from the
+photocathode. Compare your result with the upper end, approximately 260 nm, of the operating
+range of a typical UV flame sensor.
+(e) A hot surface inside the furnace also emits intense visible radiation at 650 nm. Calculate the
+energy of these photons and determine whether they can produce photoelectrons.
+(f) During operation, the intensity of the 650 nm radiation increases by a factor of 1000. Would this
+cause photoemission? Explain your answer using the photon model of light.
+(g) Explain why the existence of a threshold wavelength is technologically useful for detecting a
+flame in an environment containing hot surfaces and intense visible radiation.
+
+PROBLEM 5 — Photoelectric effect and UV detection
+PHOTOELECTRIC EFFECT
+
+The photoelectric effect is the emission of electrons from a material when electromagnetic radiation of sufficiently high
+frequency strikes its surface. It could not be explained by the classical wave theory of light. Einstein explained it in 1905 by
+treating light as photons with energy Eγ = hν. Photoelectric detection remains important in photomultipliers, spectroscopy
+and ultraviolet instrumentation.
+
+Ultraviolet radiation of wavelength λ = 250 nm is incident on a potassium surface with work function
+φ = 2.2 eV.
+
+  (a) Determine the energy of the incident photons in eV.
+  (b) Calculate the maximum kinetic energy of the emitted electrons.
+  (c) Determine the maximum speed of the emitted electrons.
+  (d) Calculate the longest wavelength capable of producing photoemission from this surface.
+  (e) Explain why increasing the intensity of light with a wavelength longer than this threshold does
+  not cause photoemission.
+
+PROBLEM 6 — Selecting a material for a photodetector
+PHOTON ENERGY AND SEMICONDUCTOR BAND GAPS
+Photodiodes convert light into electrical signals and are used in cameras, industrial sensors, medical instruments and optical
+communication systems. In a simplified semiconductor picture, a photon can create an electron–hole pair only if its energy
+is at least the semiconductor band-gap energy.
+
+Silicon has a room-temperature band gap Eg = 1.12 eV.
+
+
+  (a) Calculate the maximum photon wavelength that can, in principle, generate an electron–hole
+  pair in silicon.
+  (b) Determine the photon energy at the telecommunications wavelength λ = 1550 nm.
+  (c) Can an ideal silicon photodiode detect these photons through direct band-to-band
+  absorption? Justify your answer.
+  (d) Germanium has E_g = 0.66 eV. Calculate its corresponding threshold wavelength.
+  (e) Explain why the choice of semiconductor material depends strongly on the wavelength
+  range of the detector.
+
+PROBLEM 7 — Photons in fibre-optic communications
+PLANCK RELATION
+Modern telecommunications networks transmit information using laser pulses propagating
+through optical fibres. A standard wavelength is around 1550 nm, where silica fibres have very low
+attenuation. Although ordinary optical pulses contain enormous numbers of photons, their energy
+is ultimately built from discrete photon energies.
+
+A fibre-optic transmitter operates at λ = 1550 nm with optical power P = 1.0 mW.
+
+  (a) Calculate the energy of one photon.
+  (b) Express the photon energy in eV.
+  (c) Estimate the number of photons emitted per second.
+  (d) Suppose information is transmitted using 1.0 ns optical pulses with the same instantaneous
+  optical power. Approximately how many photons are in each pulse?
+  (e) Explain why the discrete nature of light becomes increasingly important as optical signals
+ become weaker.
+
+PROBLEM 8 — Electron microscopy and nanotechnology
+DE BROGLIE WAVELENGTH
+The spatial resolution of an optical microscope is fundamentally limited by the wavelength of
+visible light. Electron microscopes exploit the wave nature of electrons. According to de Broglie, a
+particle with momentum p has wavelength λ = h/p.
+
+An electron is accelerated from rest through a potential difference V = 10.0 kV. Use the non-
+relativistic approximation.
+(a) Calculate the kinetic energy acquired by the electron.
+  (b) Show that its momentum can be written as p = √(2m_e eV).
+  (c) Calculate its de Broglie wavelength.
+  (d) Compare this wavelength with a typical visible-light wavelength of 500 nm.
+  (e) Explain why electron microscopes can, in principle, resolve much smaller structures than
+  optical microscopes.
+  (f) Is de Broglie wavelength the only factor determining actual microscope resolution? Briefly
+  discuss
+
+PROBLEM 9 — Electron-beam lithography
+DE BROGLIE WAVELENGTH
+
+Modern semiconductor devices contain structures with dimensions of only a few nanometres. Electron-beam lithography
+creates small patterns by focusing energetic electrons onto an electron-sensitive resist. The very short de Broglie wavelength
+of the electrons is one reason electron beams can define structures far smaller than the wavelength of visible light.
+
+A lithography system operates with electrons of kinetic energy K = 20 keV. Use a non-relativistic
+treatment.
+
+  (a) Calculate the momentum of an electron.
+  (b) Calculate its de Broglie wavelength.
+  (c) Compare this wavelength with a feature size of 10 nm.
+  (d)  If the kinetic energy is doubled to 40 keV, by what factor does the de Broglie wavelength
+ change?
+  (e) Why is the smallest feature produced by the instrument nevertheless much larger than the
+  calculated wavelength?
+
+PROBLEM 10 — Infrared sensors for autonomous systems
+PLANCK DISTRIBUTION AND WIEN'S LAW
+Infrared cameras can detect objects even when visible illumination is poor. Long-wave infrared
+sensors used in surveillance, robotics and some automotive systems operate near 8–14 μm, where
+objects around ambient temperature emit strongly.
+
+Consider a pedestrian with effective surface temperature T = 305 K and surroundings at T_env =
+285 K.
+
+  (a) Determine the wavelength of maximum thermal emission from the pedestrian.
+  (b) Repeat for the surroundings.
+  (c) Calculate the blackbody radiant exitance for both temperatures.
+  (d) Calculate the difference in emitted power per unit area.
+(e) Explain why an infrared detector can distinguish the pedestrian from cooler surroundings at
+  night.
+
+PROBLEM 11 — Solar energy: photons arriving at a photovoltaic panel
+PHOTONS AND POWER
+
+Solar photovoltaic technology converts part of the energy carried by sunlight into electrical energy. The solar spectrum
+contains photons over a wide range of wavelengths, and whether a photon can contribute to electricity generation depends
+on both its energy and the electronic structure of the photovoltaic material.
+
+For a deliberately simplified estimate, monochromatic light of wavelength λ = 550 nm delivers an
+irradiance I = 1000 W m⁻² to a photovoltaic panel of area A = 1.5 m².
+
+  (a) Calculate the energy of one 550 nm photon.
+  (b) Calculate the total radiant power incident on the panel.
+  (c) Estimate the number of photons striking the panel each second.
+  (d) A silicon solar cell has band gap E_g = 1.12 eV. Compare this with the energy of a 550 nm
+  photon.
+  (e) In a simple picture, energy above the band gap is eventually lost as heat. Calculate the
+  excess photon energy.
+  (f) Explain why a semiconductor with an extremely small band gap would not automatically
+ produce a highly efficient solar cell.
+
+PROBLEM 12 — From a hot filament to an LED
+THERMAL RADIATION VERSUS QUANTUM LIGHT SOURCES
+Traditional incandescent lamps produce light by heating a tungsten filament to roughly 2700–3000
+K. Most of their radiation is emitted in the infrared. LEDs use a different mechanism: electron–hole
+recombination in a semiconductor produces photons with energies related to electronic energy
+differences.   This    is  one   reason  LEDs  can  be  much  more   energy   efficient.
+
+Consider a tungsten filament at T = 2800 K, a blue LED emitting at 450 nm and a red LED emitting
+at 630 nm.
+
+  (a) Use Wien's law to determine the wavelength at which the filament spectrum has maximum
+  intensity.
+  (b) Is this wavelength in the visible region?
+  (c) Calculate the energy of a blue LED photon in eV.
+  (d) Calculate the energy of a red LED photon in eV.
+  (e) Which LED requires the larger electronic energy transition?
+  (f) Using your answer to part (a), explain why incandescent lamps waste much more electrical
+  energy as heat than LEDs.
+  (g) Explain briefly the physical distinction between thermal emission from tungsten and photon
+  emission associated with electronic transitions in a semiconductor.
