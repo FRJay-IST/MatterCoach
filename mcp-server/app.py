@@ -125,16 +125,19 @@ def get_problem(number: int) -> dict:
 
 
 # ------------------------------------------------------------
-# Tool 3: Socratic answer assessment
+# Tool 3: Prepare a student response for Socratic assessment
 # ------------------------------------------------------------
 
-@mcp.tool(annotations=READ_ONLY_ANNOTATIONS)
+@mcp.tool(
+    name="prepare_student_response",
+    annotations=READ_ONLY_ANNOTATIONS,
+)
 def check_answer(
     number: int,
     student_answer: str,
     part: str = "",
 ) -> dict:
-    """Prepare a student's answer for Socratic assessment, without publishing the answer key."""
+    """Prepare a student's response for guided Socratic discussion; this tool does not automatically verify answers."""
 
     problems = read_statements()
 
@@ -155,8 +158,10 @@ def check_answer(
         "student_answer": student_answer,
         "problem": problems[number]["statement"],
         "instruction": (
-            "Evaluate using the tutor's verified private reference. "
-            "Ask one guiding question; do not reveal the complete solution."
+            "Use the tutor's verified reference solutions, if available, "
+            "to assess the student's reasoning. "
+            "Ask one guiding question at a time. "
+            "Do not reveal the complete solution immediately."
         ),
         "automatically_verified": False,
     }
