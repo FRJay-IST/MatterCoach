@@ -6,7 +6,9 @@ import re
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
+from mcp.types import ToolAnnotations
 from starlette.responses import PlainTextResponse
+
 
 DATA = Path(__file__).parent / "data"
 
@@ -18,6 +20,21 @@ mcp = FastMCP(
     json_response=True,
 )
 
+
+# ------------------------------------------------------------
+# MCP tool annotations
+# ------------------------------------------------------------
+
+READ_ONLY_ANNOTATIONS = ToolAnnotations(
+    readOnlyHint=True,
+    destructiveHint=False,
+    openWorldHint=False,
+)
+
+
+# ------------------------------------------------------------
+# Load original problem statements
+# ------------------------------------------------------------
 
 def read_statements():
     path = DATA / "statements.txt"
@@ -56,7 +73,11 @@ def read_statements():
     return problems
 
 
-@mcp.tool()
+# ------------------------------------------------------------
+# Tool 1: List all problems
+# ------------------------------------------------------------
+
+@mcp.tool(annotations=READ_ONLY_ANNOTATIONS)
 def list_problems() -> dict:
     """List available exercises from Structure of Matter, Problem Sheet 1."""
 
@@ -76,7 +97,11 @@ def list_problems() -> dict:
     }
 
 
-@mcp.tool()
+# ------------------------------------------------------------
+# Tool 2: Retrieve a complete problem statement
+# ------------------------------------------------------------
+
+@mcp.tool(annotations=READ_ONLY_ANNOTATIONS)
 def get_problem(number: int) -> dict:
     """Return the complete original statement for a numbered exercise (1-12)."""
 
@@ -89,7 +114,9 @@ def get_problem(number: int) -> dict:
         }
 
     if number not in problems:
-        return {"error": "Choose a problem from 1 to 12."}
+        return {
+            "error": "Choose a problem from 1 to 12."
+        }
 
     return {
         "number": number,
@@ -97,7 +124,11 @@ def get_problem(number: int) -> dict:
     }
 
 
-@mcp.tool()
+# ------------------------------------------------------------
+# Tool 3: Socratic answer assessment
+# ------------------------------------------------------------
+
+@mcp.tool(annotations=READ_ONLY_ANNOTATIONS)
 def check_answer(
     number: int,
     student_answer: str,
@@ -114,7 +145,9 @@ def check_answer(
         }
 
     if number not in problems:
-        return {"error": "Choose a problem from 1 to 12."}
+        return {
+            "error": "Choose a problem from 1 to 12."
+        }
 
     return {
         "number": number,
@@ -129,7 +162,9 @@ def check_answer(
     }
 
 
+# ------------------------------------------------------------
 # OpenAI domain verification
+# ------------------------------------------------------------
 
 @mcp.custom_route(
     "/.well-known/openai-apps-challenge",
@@ -140,6 +175,10 @@ async def openai_domain_challenge(request):
         "xDyVC1zJtObUQ3cPQvhu4r6cABVgPPocp8UNCUSfrOE"
     )
 
+
+# ------------------------------------------------------------
+# Start MCP server
+# ------------------------------------------------------------
 
 if __name__ == "__main__":
     mcp.run(transport="streamable-http")
